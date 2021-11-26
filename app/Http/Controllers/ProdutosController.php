@@ -10,7 +10,7 @@ class ProdutosController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::all();
+        $produtos = Produto::paginate(4);
         return view('produto.index', array('produtos' => $produtos, 'busca' => null));
     }
 
@@ -88,7 +88,7 @@ class ProdutosController extends Controller
 
     public function buscar(Request $request)     {
         $produtos = Produto::where ('titulo', 'LIKE', '%'.
-        $request->input('busca').'%')->orwhere ('descricao', 'LIKE', '%'.$request->input('busca'). '%')->get();
+        $request->input('busca').'%')->orwhere ('descricao', 'LIKE', '%'.$request->input('busca'). '%')->paginate(4);
         return view ('produto.index', array('produtos'=>$produtos, 'busca'=>$request->input('busca')));
     }
 }

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Olá Mundo @@yield('title')</title>
+    <title>Olá Mundo @yield('title')</title>
     {{Html::style('css/bootstrap.min.css')}}
     {{Html::style('css/bootstrap-utilities.min.css')}}
     {{Html::style('css/bootstrap-grid.min.css')}}

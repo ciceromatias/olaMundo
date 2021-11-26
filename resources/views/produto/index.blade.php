@@ -51,4 +51,5 @@
 
     <a href="{{url('produtos/create')}}">Novo produto</a>
     </div>
+    {{$produtos->links()}}
 @endsection

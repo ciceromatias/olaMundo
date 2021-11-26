@@ -17,6 +17,7 @@
 
     @if (Session::has ('mensagem'))
     <div class="alert alert-success">                                                                                         
+        {{Session::get('mensagem')}}
     </div>
     @endif
         {{ Form::open(['route' => ['produtos.update',$produto->id], 'enctype'=>'multipart/form-data' ,'method'=>'PUT']) }}
