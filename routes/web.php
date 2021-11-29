@@ -34,7 +34,19 @@ Route::post('produtos/create', ['App\Http\Controllers\ProdutosController'::class
 Route::post('produtos/buscar', [ProdutosController::class, 'buscar']);
 
 
-Route::get('produtos/adicionar-produto', 'ProdutosController@create');
+Route::get('adicionar',['App\Http\Controllers\ProdutosController'::class,'create']);
 
-Route::get('produtos/{id}/editar','ProdutosController@edit');
+Route::get('produtos/{id}/editar',['App\Http\Controllers\ProdutosController'::class,'edit']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

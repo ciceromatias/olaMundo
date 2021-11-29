@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title', $produto->titulo)
+@section('title', $produto->titulo?$produto->titulo:'')
 @section('content')
-    <h1>Produto {{ $produto->titulo }}</h1>
+    <h1>Produto {{ $produto->titulo?$produto->titulo:'' }}</h1>
     <div class="row">
 
         <div class="col-md-6 col-md-3">

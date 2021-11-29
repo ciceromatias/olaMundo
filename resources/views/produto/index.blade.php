@@ -23,10 +23,11 @@
         </div>
     @endif
 
+    <div class="container">
     <div class="row">
 
         @foreach ($produtos as $produto)
-            <div class="col-md-3">
+            <div class='col-md-3' style="border: 1px solid #ccc">
                 <h4>{{ $produto->titulo }}</h4>
 
                 @if (file_exists('./img/produtos/' . md5($produto->id) . '.jpg'))
@@ -46,6 +47,7 @@
                 {{ Form::close() }}
             </div>
         @endforeach
+    </div>
     </div>
     <div class="row">
 

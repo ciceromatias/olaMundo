@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use Illuminate\Support\Facades\Auth;
 use Session;
+
 
 class ProdutosController extends Controller
 {
@@ -25,7 +27,11 @@ class ProdutosController extends Controller
 
     public function create()
     {
-        return view('produto.create');
+        if (Auth::check()) {
+            return view('produto.create');
+        } else {
+            return redirect('login');
+        }
     }
 
     public function store(Request $request)
@@ -83,12 +89,15 @@ class ProdutosController extends Controller
         $produto = Produto::find($id);
         $produto->delete();
         Session::flash('mensagem', 'Produto excluído com sucesso.');
+        $produto = 0;
         return redirect()->back();
+
     }
 
-    public function buscar(Request $request)     {
-        $produtos = Produto::where ('titulo', 'LIKE', '%'.
-        $request->input('busca').'%')->orwhere ('descricao', 'LIKE', '%'.$request->input('busca'). '%')->paginate(4);
-        return view ('produto.index', array('produtos'=>$produtos, 'busca'=>$request->input('busca')));
+    public function buscar(Request $request)
+    {
+        $produtos = Produto::where('titulo', 'LIKE', '%' .
+            $request->input('busca') . '%')->orwhere('descricao', 'LIKE', '%' . $request->input('busca') . '%')->paginate(4);
+        return view('produto.index', array('produtos' => $produtos, 'busca' => $request->input('busca')));
     }
 }
