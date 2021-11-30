@@ -40,11 +40,12 @@
                         {{ $produto->titulo }}
                     </a>
                 @endif
-
+                @if (Auth::check())
                 {{ Form::open(['route' => ['produtos.destroy', $produto->id], 'method' => 'DELETE']) }}
                 <a class="btn btn-info" href="{{ url('produtos/' . $produto->id . '/edit') }}">Editar</a>
                 {{ Form::submit('Excluir', ['class' => 'btn btn-success']) }}
                 {{ Form::close() }}
+                @endif
             </div>
         @endforeach
     </div>

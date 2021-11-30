@@ -34,7 +34,7 @@ Route::post('produtos/create', ['App\Http\Controllers\ProdutosController'::class
 Route::post('produtos/buscar', [ProdutosController::class, 'buscar']);
 
 
-Route::get('adicionar',['App\Http\Controllers\ProdutosController'::class,'create']);
+Route::get('adicionar-produto',['App\Http\Controllers\ProdutosController'::class,'create']);
 
 Route::get('produtos/{id}/editar',['App\Http\Controllers\ProdutosController'::class,'edit']);
 
